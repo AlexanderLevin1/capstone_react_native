@@ -13,7 +13,9 @@ class Chat extends Component {
   }
 
   onSend(messages = []) {
-    this.setState({ messages });
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, messages)
+    }));
   }
 
   componentWillMount() {
