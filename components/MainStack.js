@@ -10,6 +10,8 @@ import OrganizationInfo from './OrganizationInfo';
 import UserRequests from './UserRequests';
 import ModalStack from './modals/ModalStack';
 import UserDescriptions from './UserDescriptions';
+import UserList from './UserList';
+import Chat from './Chat';
 
 const TabNavigator = createMaterialTopTabNavigator({
   Organizations: {
@@ -36,7 +38,9 @@ const TabNavigator = createMaterialTopTabNavigator({
 const NavStack = createStackNavigator({
   Home: TabNavigator,
   Details: OrganizationInfo,
-  Descriptions: UserDescriptions
+  Descriptions: UserDescriptions,
+  UserList: UserList,
+  Chat: Chat
 }, {
   headerMode: 'screen',
   initialRouteName: 'Home'
