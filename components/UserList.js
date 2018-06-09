@@ -53,8 +53,7 @@ class UserList extends Component {
                     )
                       : (
                       <Button
-                        // onPress={() => console.log('Chat')}
-                        onPress={() => navigate('Chat')}
+                        onPress={() => navigate('Chat', { sender: loggedUser, receiver: user })}
                         title='Chat'
                         buttonStyle={{
                           backgroundColor: 'green',
@@ -77,7 +76,6 @@ const mapState = ({ user, users, userRequests }, { organization, navigation }) =
   const ownUsers = users.filter(ownUser => ownUser.checkedInId === organization.id && ownUser.id !== user.id);
   const loggedUser = user;
   const { navigate } = navigation;
-  console.log("NAV:", navigation)
   return {
     ownUsers,
     loggedUser,
@@ -90,8 +88,7 @@ const mapState = ({ user, users, userRequests }, { organization, navigation }) =
 const mapDispatch = (dispatch) => {
   return {
     createRequest: (request) => {
-      // console.log(request);
-      dispatch(createUserRequestOnServer(request))
+      dispatch(createUserRequestOnServer(request));
     }
   }
 }
