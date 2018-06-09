@@ -6,6 +6,20 @@ import { connect } from 'react-redux';
 import SubmitDescription from './SubmitDescription';
 
 class UserDescriptions extends Component {
+  constructor() {
+    super();
+    const state = this.props.orgForms.reduce((obj, form) => {
+      obj[form.name] = form.description ? form.description : '';
+      return obj;
+    }, {});
+    this.state = state;
+  }
+
+  onChange(name, description){
+    const change = { [name]: description};
+    this.setState(change);
+  }
+
   render() {
     const { orgForms, organization, descriptions, user } = this.props;
     return (
@@ -29,6 +43,7 @@ class UserDescriptions extends Component {
 const mapState = ({ user, forms, descriptions }, { navigation }) => {
   const organization = navigation.getParam('organization', 'no organization');
   const orgForms = forms.filter(form => form.organizationId === organization.id);
+  const ownDescriptions = descriptions.filter(description => description.userId === user.id && description.organizationId === organization.id && description.formId === form.id);
   return {
     orgForms,
     organization,
