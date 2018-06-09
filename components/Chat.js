@@ -9,6 +9,11 @@ class Chat extends Component {
     this.state = {
       messages: []
     };
+    this.onSend = this.onSend.bind(this);
+  }
+
+  onSend(messages = []) {
+    this.setState({ messages });
   }
 
   componentWillMount() {
