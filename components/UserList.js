@@ -53,7 +53,7 @@ class UserList extends Component {
                     )
                       : (
                       <Button
-                        onPress={() => navigate('Chat', { sender: loggedUser, receiver: user })}
+                        onPress={() => navigate('Chat', { sender: loggedUser.id, receiver: user.id })}
                         title='Chat'
                         buttonStyle={{
                           backgroundColor: 'green',

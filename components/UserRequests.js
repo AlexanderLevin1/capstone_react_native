@@ -52,7 +52,7 @@ class UserRequests extends Component {
                       raised
                       buttonStyle={{ backgroundColor: 'green', borderRadius: 10, marginTop: 15 }}
                       title='Chat'
-                      onPress={() => this.props.navigation.navigate('Chat', { sender: requesterId, receiver: requesterId })}
+                      onPress={() => this.props.navigation.navigate('Chat', { sender: responderId, receiver: requesterId })}
                     />
                   )
                 }
